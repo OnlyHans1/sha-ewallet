@@ -1,5 +1,7 @@
 import 'package:bank_sha/main.dart';
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/ui/pages/sign_in_page.dart';
+import 'package:bank_sha/ui/widgets/buttons.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -83,7 +85,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   Text(
                     titles[currentIndex],
                     style: blackTextStyle.copyWith(
-                      fontSize: 20,
+                      fontSize: 24,
                       fontWeight: semiBold,
                     ),
                     textAlign: TextAlign.center,
@@ -94,127 +96,88 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   Text(
                     subtitles[currentIndex],
                     style: grayTextStyle.copyWith(
-                      fontSize: 16,
+                      fontSize: 18,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(
-                    height: currentIndex == 2 ? 38 : 50,
+                  const SizedBox(
+                    height: 50,
                   ),
-                  currentIndex == 2 ? 
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                        child: TextButton(
-                          onPressed: () => carouselController.nextPage(
-                              duration: const Duration(milliseconds: 200),
-                              curve: Curves.linear),
-                          style: TextButton.styleFrom(
-                            backgroundColor: purpleColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(56),
+                  currentIndex == 2
+                      ? Column(
+                          children: [
+                            CustomFilledButton(
+                              title: 'Get Started',
+                              onPressed: () {},
                             ),
-                          ),
-                          child: Text(
-                            'Get Started',
-                            style: whiteTextStyle.copyWith(
-                              fontSize: 16,
-                              fontWeight: semiBold,
+                            const SizedBox(
+                              height: 20,
                             ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 24,
-                        child: TextButton(
-                          onPressed: () => (
-
-                          ),
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero
-                          ),
-                          child: Text(
-                            'Sign In',
-                            style: grayTextStyle.copyWith(
-                              fontSize: 16,
+                            CustomTextButton(
+                              title: "Sign In",
+                              onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const SignInPage(),
+                                    ),
+                                  );
+                                },
                             ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ) :
-                  Row(
-                    children: [
-                      Container(
-                        width: 12,
-                        height: 12,
-                        margin: const EdgeInsets.only(
-                          right: 10,
-                        ),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: currentIndex == 0
-                              ? blueColor
-                              : lightBackgroundColor,
-                        ),
-                      ),
-                      Container(
-                        width: 12,
-                        height: 12,
-                        margin: const EdgeInsets.only(
-                          right: 10,
-                        ),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: currentIndex == 1
-                              ? blueColor
-                              : lightBackgroundColor,
-                        ),
-                      ),
-                      Container(
-                        width: 12,
-                        height: 12,
-                        margin: const EdgeInsets.only(
-                          right: 10,
-                        ),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: currentIndex == 2
-                              ? blueColor
-                              : lightBackgroundColor,
-                        ),
-                      ),
-                      const Spacer(),
-                      SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: TextButton(
-                          onPressed: () => carouselController.nextPage(
-                              duration: const Duration(milliseconds: 200),
-                              curve: Curves.linear),
-                          style: TextButton.styleFrom(
-                            backgroundColor: purpleColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(56),
+                          ],
+                        )
+                      : Row(
+                          children: [
+                            Container(
+                              width: 12,
+                              height: 12,
+                              margin: const EdgeInsets.only(
+                                right: 10,
+                              ),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: currentIndex == 0
+                                    ? blueColor
+                                    : lightBackgroundColor,
+                              ),
                             ),
-                          ),
-                          child: Text(
-                            'Continue',
-                            style: whiteTextStyle.copyWith(
-                              fontSize: 16,
-                              fontWeight: semiBold,
+                            Container(
+                              width: 12,
+                              height: 12,
+                              margin: const EdgeInsets.only(
+                                right: 10,
+                              ),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: currentIndex == 1
+                                    ? blueColor
+                                    : lightBackgroundColor,
+                              ),
                             ),
-                          ),
+                            Container(
+                              width: 12,
+                              height: 12,
+                              margin: const EdgeInsets.only(
+                                right: 10,
+                              ),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: currentIndex == 2
+                                    ? blueColor
+                                    : lightBackgroundColor,
+                              ),
+                            ),
+                            const Spacer(),
+                            CustomFilledButton(
+                              width: 150,
+                              title: 'Continue',
+                              onPressed: () => carouselController.nextPage(
+                                    duration:
+                                        const Duration(milliseconds: 200),
+                                    curve: Curves.linear),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
             ),
