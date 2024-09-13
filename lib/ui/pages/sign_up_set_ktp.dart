@@ -52,9 +52,9 @@ class SignUpSetKtpPage extends StatelessWidget {
                     color: lightBackgroundColor,
                   ),
                   child: Center(
-                    child: Image.asset( 
+                    child: Image.asset(
                       'assets/ic_upload.png',
-                    width: 32,
+                      width: 32,
                     ),
                   ),
                 ),
@@ -63,18 +63,17 @@ class SignUpSetKtpPage extends StatelessWidget {
                 ),
                 Text(
                   'Passport/ID Card',
-                  style: blackTextStyle.copyWith(
-                    fontWeight: medium,
-                    fontSize: 18
-                  ),
+                  style:
+                      blackTextStyle.copyWith(fontWeight: medium, fontSize: 18),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 50,
                 ),
                 CustomFilledButton(
                   title: "Continue",
                   onPressed: () {
-                    Navigator.pushNamed(context, '/sign-in');
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/sign-in', (route) => false);
                   },
                 ),
               ],
@@ -85,7 +84,9 @@ class SignUpSetKtpPage extends StatelessWidget {
           ),
           CustomTextButton(
             title: "Skip for Now",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/sign-up-success');
+            },
           )
         ],
       ),
