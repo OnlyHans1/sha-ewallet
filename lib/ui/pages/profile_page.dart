@@ -9,20 +9,9 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBackgroundColor,
       appBar: AppBar(
-        backgroundColor: lightBackgroundColor,
-        elevation: 0,
-        centerTitle: true,
-        iconTheme: IconThemeData(
-          color: blackColor,
-        ),
-        title: Text(
+        title: const Text(
           "My Profile",
-          style: blackTextStyle.copyWith(
-            fontSize: 20,
-            fontWeight: semiBold,
-          ),
         ),
       ),
       body: ListView(
@@ -40,7 +29,7 @@ class ProfilePage extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               color: whiteColor,
-              borderRadius: BorderRadius.circular(20), 
+              borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
               children: [
@@ -60,8 +49,8 @@ class ProfilePage extends StatelessWidget {
                     child: Container(
                       width: 28,
                       height: 28,
-                      decoration:
-                          BoxDecoration(shape: BoxShape.circle, color: whiteColor),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: whiteColor),
                       child: Center(
                         child: Icon(
                           Icons.check_circle,
@@ -83,35 +72,31 @@ class ProfilePage extends StatelessWidget {
                   height: 40,
                 ),
                 ProfileMenuItem(
-                  iconUrl: 'assets/ic_edit_profile.png', 
-                  title: 'Edit Profile', 
-                  onTap: () {}
-                ),
+                    iconUrl: 'assets/ic_edit_profile.png',
+                    title: 'Edit Profile',
+                    onTap: () {
+                      Navigator.pushNamed(context, '/pin');
+                    }),
                 ProfileMenuItem(
-                  iconUrl: 'assets/ic_pin.png', 
-                  title: 'My PIN', 
-                  onTap: () {}
-                ),
+                    iconUrl: 'assets/ic_pin.png',
+                    title: 'My PIN',
+                    onTap: () {}),
                 ProfileMenuItem(
-                  iconUrl: 'assets/ic_wallet.png', 
-                  title: 'Wallet Settings', 
-                  onTap: () {}
-                ),
+                    iconUrl: 'assets/ic_wallet.png',
+                    title: 'Wallet Settings',
+                    onTap: () {}),
                 ProfileMenuItem(
-                  iconUrl: 'assets/ic_reward.png', 
-                  title: 'My Rewards', 
-                  onTap: () {}
-                ),
+                    iconUrl: 'assets/ic_reward.png',
+                    title: 'My Rewards',
+                    onTap: () {}),
                 ProfileMenuItem(
-                  iconUrl: 'assets/ic_help.png', 
-                  title: 'Help Center', 
-                  onTap: () {}
-                ),
+                    iconUrl: 'assets/ic_help.png',
+                    title: 'Help Center',
+                    onTap: () {}),
                 ProfileMenuItem(
-                  iconUrl: 'assets/ic_logout.png', 
-                  title: 'Log Out', 
-                  onTap: () {}
-                ),
+                    iconUrl: 'assets/ic_logout.png',
+                    title: 'Log Out',
+                    onTap: () {}),
               ],
             ),
           ),
