@@ -64,7 +64,7 @@ class TopupPage extends StatelessWidget {
             height: 14,
           ),
           const BankItem(
-              title: 'Bank BCA', imageUrl: 'assets/img_bank_bca.png'),
+              title: 'Bank BCA', imageUrl: 'assets/img_bank_bca.png', isSelected: true,),
           const BankItem(
               title: 'Bank BNI', imageUrl: 'assets/img_bank_bni.png'),
           const BankItem(
