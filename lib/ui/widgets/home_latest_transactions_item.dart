@@ -22,10 +22,14 @@ class HomeLatestTransactionsItem extends StatelessWidget {
         bottom: 18,
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            iconUrl, 
-            width: 48,
+          Container(
+            margin: const EdgeInsets.only(right: 8),
+            child: Image.asset(
+              iconUrl, 
+              width: 48,
+            ),
           ),
           const SizedBox(
             height: 16,
